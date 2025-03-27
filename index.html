@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VPAA Dr. Ayala SCFF Multi-Year Strategy Presentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+      padding: 20px;
+      display: none; /* Hidden until password is entered */
+    }
+    h1 {
+      color: #333;
+    }
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      max-width: 1000px;
+      margin: 20px auto;
+    }
+    .cell {
+      padding: 20px;
+      background-color: #0074D9;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .cell:hover {
+      background-color: #0056a3;
+    }
+    .revealed-question {
+      background-color: #FFD700;
+      color: black;
+      font-size: 18px;
+    }
+    .revealed-answer {
+      background-color: #4CAF50;
+      color: white;
+      font-size: 18px;
+    }
+    .category {
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #222;
+      color: white;
+      padding: 10px;
+      text-transform: uppercase;
+      border-radius: 5px;
+    }
+    .presentation-link {
+      margin-top: 10px;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+  </style>
+  <script>
+    function checkPassword() {
+      var password = prompt("Enter the password to access the game:");
+      if (password === "7145") {
+        document.body.style.display = "block";
+      } else {
+        alert("Incorrect password. Try again.");
+        checkPassword();
+      }
+    }
+
+    function reveal(cell, question, answer) {
+      if (!cell.classList.contains("revealed-question")) {
+        cell.innerHTML = question;
+        cell.classList.add("revealed-question");
+      } else {
+        cell.innerHTML = answer;
+        cell.classList.add("revealed-answer");
+      }
+    }
+
+    window.onload = checkPassword;
+  </script>
+</head>
+<body>
+  <h1>VPAA Dr. Ayala SCFF Multi-Year Strategy Presentation</h1>
+  <div class="presentation-link">
+    📄 <a href="https://cdn.glitch.global/a0a69494-eded-4b0e-b69b-1067552b6601/Institutional_Performance_Slides.pdf?v=1743051119378" target="_blank">
+      Click here to open the Plan in a new window
+    </a>
+  </div>
+  <p>Click on the dollar amounts to reveal the questions and then the answers!</p>
+
+  <div class="board">
+    <!-- Categories -->
+    <div class="category">Data</div>
+    <div class="category">Strategy</div>
+    <div class="category">Collaboration</div>
+
+    <!-- $100 Row -->
+    <div class="cell" onclick="reveal(this, 'What are the primary sources of SCFF data used for planning?', 'What are FTES, Pell/Promise counts, success metrics, and labor market outcomes?')">$100</div>
+    <div class="cell" onclick="reveal(this, 'What is the first phase of the 3-year strategy?', 'What is stabilizing enrollment and aligning class schedules to demand?')">$100</div>
+    <div class="cell" onclick="reveal(this, 'Who ensures onboarding and FAFSA campaigns connect to instruction?', 'Who are Student Services and Financial Aid staff?')">$100</div>
+
+    <!-- $200 Row -->
+    <div class="cell" onclick="reveal(this, 'What tool tracks equity gaps by program and student type?', 'What is a disaggregated success dashboard?')">$200</div>
+    <div class="cell" onclick="reveal(this, 'What’s one short-term measurable goal of the plan?', 'What is a 10% increase in FAFSA/CADAA completions in Year 1?')">$200</div>
+    <div class="cell" onclick="reveal(this, 'Who provides budget modeling to support strategy alignment?', 'Who is Administrative Services?')">$200</div>
+
+    <!-- $300 Row -->
+    <div class="cell" onclick="reveal(this, 'What metric combines enrollment and instructional load?', 'What is productivity (FTES/FTEF)?')">$300</div>
+    <div class="cell" onclick="reveal(this, 'What defines the long-term success of this plan?', 'What is sustained SCFF growth and closing equity gaps by Year 3?')">$300</div>
+    <div class="cell" onclick="reveal(this, 'Who co-owns strategy implementation with the VPAA?', 'Who are Deans, Chairs, Senate, and College Council?')">$300</div>
+  </div>
+</body>
+</html>
